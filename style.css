@@ -3,7 +3,17 @@ body {
   text-align: center;
 }
 
-board {
+span {
+  margin: 0 auto;
+  border: 2px solid black;
+  display: inline-block;
+}
 
+.grid {
+  margin:1em auto;
+}
 
+.grid td {
+    width:100px; height:100px;
+    border:1px solid black;
 }

@@ -6,24 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <title>GET FRIED!</title>
 </head>
 <body>
   <header>
-    <h1>GET FRIED!</h1>
+    <h1> &#x1F35F GET FRIED! &#x1F35F</h1>
     <h2>COLLECT FRIES TO WIN</h2>
   </header>
 
-  <div class='board'>
-    <span></span>
 <!-- create board -->
+  <div class='board'>
+<!-- names -->
+  <p>Player 1 Name: </p><input type="text"></input>
+  <p>Player 2 Name: </p><input type="text"></input>
+
 <!-- provide options for board size -->
+  </br>
     <form>
       <select id="sizes">
         <option></option>
       </select>
     </form>
     <button id="createboard">NEW GAME</button>
+<!-- SCORES -->
+
 
 
 <!-- avatar selection -->
@@ -36,30 +43,30 @@
 " alt="" width="100px"> -->
 
 <!-- print board -->
+    <div class='p1winner'>
+      <img src="http://66.media.tumblr.com/tumblr_m9473r4uzP1rue873o1_400.png" alt="" />
+    </div>
+    <div class ='p2winner'>
+      <img src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png">
+    </div>
+
     <table>
-      <div class='p1winner'>
-        <img src="http://66.media.tumblr.com/tumblr_m9473r4uzP1rue873o1_400.png" alt="" />
-      </div>
-      <div class ='p2winner'>
-        <img src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png">
-      </div>
-
-
-        <audio class="audio2" controls="" data-id="366">
-          <source src="https://d2eopxgp627wep.cloudfront.net/ps/audios/000/000/366/original/i'm-the-man.mp3?1469744019" type="audio/mp3">
-        </audio>
-        <audio class="audio1" controls="" data-id="366">
-          <source src="https://d2eopxgp627wep.cloudfront.net/ps/audios/000/000/343/original/business-man.mp3?1469744343" type="audio/mp3">
-        </audio>
-        <audio class="kanye-grunt" controls="" data-id="366">
-          <source src="http://therapboard.com/audio/kanye_unh.mp3" type="audio/mp3">
-        </audio>
-        <audio class="drake-grunt" controls="" data-id="366">
-          <source src="http://therapboard.com/audio/drake_goddamngoddamn.mp3" type="audio/mp3">
-        </audio>
     </table>
 
   </div>
+
+  <audio class="audio2" controls="" data-id="366">
+    <source src="https://d2eopxgp627wep.cloudfront.net/ps/audios/000/000/366/original/i'm-the-man.mp3?1469744019" type="audio/mp3">
+  </audio>
+  <audio class="audio1" controls="" data-id="366">
+    <source src="https://d2eopxgp627wep.cloudfront.net/ps/audios/000/000/343/original/business-man.mp3?1469744343" type="audio/mp3">
+  </audio>
+  <audio class="kanye-grunt" controls="" data-id="366">
+    <source src="http://therapboard.com/audio/kanye_unh.mp3" type="audio/mp3">
+  </audio>
+  <audio class="drake-grunt" controls="" data-id="366">
+    <source src="http://therapboard.com/audio/drake_goddamngoddamn.mp3" type="audio/mp3">
+  </audio>
 
   <script src="jquery.js" charset="utf-8"></script>
   <script src="ox.js" charset="utf-8"></script>

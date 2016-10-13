@@ -9,6 +9,9 @@ var $player = 0;
 var boardSizes = ["3 x 3","5 x 5","9 x 9"]
 var $text = '';
 
+//TRACKING ROUNDS
+
+
 //CREATE OPTIONS FOR BOARD SIZE
 $.each(boardSizes,function(index,sizes) {
   $('#sizes').append($('<option>', {

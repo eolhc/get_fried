@@ -1,6 +1,31 @@
 body {
   margin: 0 auto;
   text-align: center;
+  font-family: 'Bungee Shade', cursive;
+  background-color: #f9e0db;
+}
+
+audio {
+  visibility: hidden;
+}
+
+form {
+  display: inline-block;
+}
+button {
+  display: inline-block;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+table {
+  padding-top: 20px;
 }
 
 .board {
@@ -8,19 +33,12 @@ body {
   text-align: center;
 }
 
-.p1winner {
+.p1winner, .p2winner {
   position: absolute;
+  padding-top: 10%;
   width: 100%;
   height: 100%;
   display:none;
-}
-
-.p2winner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: none;
-
 }
 
 td {

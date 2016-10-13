@@ -71,7 +71,9 @@ var letsPlay = function(event) {
   var $currentRow = (Math.floor($currentIndex / $width));
   var $currentColumn = ($currentIndex % $width);
 //change $boardArea element by accessing the correct 2D index
-  if ($player === 0) {
+  if ($liveCell.hasClass('p2') || $liveCell.hasClass('p1')) {
+      alert('Other player has already eaten this fry!')
+  } else if ($player === 0){
     $liveCell.addClass('p1');
     $boardArea[$currentRow][$currentColumn] = 'p1';
     calculateWin();
@@ -83,6 +85,7 @@ var letsPlay = function(event) {
     $player -= 1;
   }
 }
+
 
 //DETERMINE WIN
 //if class is all the same, check whether win
@@ -154,6 +157,11 @@ var clearBoard = function() {
   $width = 0;
   $player = 0;
   $('table').empty();
+  if ($player === 0) {
+    $('.p1winner').fadeOut(3000);
+    } else if ($player === 1) {
+    $('.p2winner').fadeOut(3000);
+  }
 }
 
 var congratulate = function() {
@@ -166,11 +174,9 @@ var congratulate = function() {
 
 var sing = function() {
   if ($player === 0) {
-    $('.audio1').load();
-    $('.audio1').play();
+    $('.audio1').get(0).play();
   } else if ($player === 1) {
-    $('.audio2').load();
-    $('.audio2').play();
+    $('.audio2').get(0).play();
   }
 }
 

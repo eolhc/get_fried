@@ -1,65 +1,156 @@
 //board variables
 var $boardBtn = $('#createboard');
 var $sizes = $('#sizes');
-var $board = $('.board');
-
+var $boardArea = [];
+var $width = 0;
+//$player turn
+var $player = 0;
 // create board
-var boardSizes = ['3x3','5x5','9x9']
+var boardSizes = ["3 x 3","5 x 5","9 x 9"]
+var $text = '';
 
+//CREATE OPTIONS FOR BOARD SIZE
 $.each(boardSizes,function(index,sizes) {
   $('#sizes').append($('<option>', {
     text: boardSizes[index],
   }));
 });
 
-// function to create board
+// CREATE BOARD
 var makeBoard = function() {
   var $chosenSize = $('#sizes option:selected');
-  if ($chosenSize.val() === "3x3") {
-    $col = 3;
-    var a = 0;
-    //create row with tag tr
-    var $grid = $('<table>');
-    $grid.addClass('grid');
-    for (var j = 0; j < $col; j++) {
-      var $row = $("<tr>");
-      // var $row = $grid.append($('<tr>'));
-      // the above would set row as a table
-      // if you use append it'll return the variable on the left
-        //creates cells for each row
-        console.log('row created');
-      for (var k = 0; k < $col; k++) {
-        var $newcell = $('<td>').text(a++);
-        var $cell = $row.append($newcell);
+  //SET GRID SIZE FOR BOARD
+  if ($chosenSize.val() === "3 x 3") {
+    $width = 3;
+  } else if ($chosenSize.val() === "5 x 5") {
+    $width = 5;
+  } else if ($chosenSize.val() === "9 x 9") {
+    $width = 9;
+  }
+  //CREATE $boardArea BASED ON THE CHOSEN GRID SIZE
+  for (var i = 0; i < $width; i++) {
+    var $row = [];
+    for (var j = 0; j < $width; j++) {
+      $row.push($text);
       }
-      $grid.append($row);
+    $boardArea.push($row);
     }
-    console.log($grid);
-    $grid.appendTo($board);
+  console.log($boardArea)
+  printBoard();
+}
+
+//PRINT CELLS FOR CHOSEN GRID SIZE
+var printBoard = function() {
+  for (var i = 0; i < $boardArea.length; i++) {
+    var $newRow = $('<tr>');
+    for (var j = 0; j < $boardArea[i].length; j++) {
+      var $newCell = $('<td>'+$boardArea[i][j]+'</td>');
+      $newCell.addClass('fry');
+      $newCell.appendTo($newRow);
+    }
+    $newRow.appendTo($('table'));
+  }
+  addIndexes();
+  $('td').on('click',letsPlay);
+}
+
+//UPDATE $CELLS TO HAVE DATA INDEXES
+//add indexes to each newly created td
+var addIndexes = function() {
+  for (var i = 0; i < $width**2; i++) {
+        $($('td')[i]).attr('data-index',i);
+    }
+
+  }
+
+//CREATE USERPLAY
+var letsPlay = function(event) {
+  var $liveCell = $(event.target);
+  var $currentIndex = $liveCell.data('index');
+//convert 1D to 2D indexes
+  var $currentRow = (Math.floor($currentIndex / $width));
+  var $currentColumn = ($currentIndex % $width);
+//change $boardArea element by accessing the correct 2D index
+  if ($player === 0) {
+    $liveCell.addClass('p1');
+    $boardArea[$currentRow][$currentColumn] = 'p1';
+    calculateWin();
+    $player += 1;
+  } else if ($player === 1) {
+    $liveCell.addClass('p2');
+    $boardArea[$currentRow][$currentColumn] = 'p2';
+    calculateWin();
+    $player -= 1;
   }
 }
 
-//
-//     console.log("got it!")
-//     for (var i = 0; i < $col; i++) {
-//       $('<span>').appendTo('#board');
-//       for (var j = 0; j < $col; j++) {
-//         row[j] = $('<span>');
-//         console.log('filled each row')
-//       }
-//       grid[i] = row;
-//     }
-//     $('span').appendTo('#board');
-//     console.table(grid)
-//
-//   }
-//   else if ($('#sizes option[value="5x5"]')) {
-//     $col = 5;
-//   }
-//   else if ($('#sizes option[value="9x9"]')) {
-//     $col = 9;
-//   }
-// }
+//DETERMINE WIN
+//if class is all the same, check whether win
+//calculateWin should check whether the neighboring cells  = win
+var calculateWin = function() {
+//expected text of player
+  if ($player === 0) {
+    $text = 'p1';
+  } else if ($player === 1) {
+    $text = 'p2';
+  }
+  // row increment
+  var $numRow = 0;
+  // column increment
+  var $numCol = 0;
+  // diagonal increment
+  var $diagLeft = 0;
+  var $diagRight = 0;
 
-//event listener for button click
-$boardBtn.on('click', makeBoard)
+  //CALCULATE HORIZONTAL AND VERTICAL WINS AND DIAGONAL LEFT WINS
+  for (var i = 0; i < $width; i++) {
+    for (var j = 0; j < $width; j++) {
+      if ($boardArea[i][j] === $text && i === j) {
+        $diagLeft += 1;
+      }
+      if ($boardArea[i][j] === $text) {
+        $numRow += 1;
+      }
+      if ($boardArea[j][i] === $text) {
+        $numCol += 1;
+      }
+      if ($numRow === $width || $numCol === $width || $diagLeft === $width) {
+        console.log($boardArea);
+        alert('win');
+        congratulate();
+      }
+    }
+    // console.log($text + "diag left is " + $diagLeft);
+    // console.log($text + "numrow is " + $numRow);
+    // console.log($text + "numcol is " + $numCol);
+    $numRow = 0;
+    $numCol = 0;
+  }
+
+  //CALCULATE DIAGONAL RIGHT WINS
+
+  //if  going ij and ij = text or
+  for (var i = 0; i < $width; i++) {
+    for (var j = ($width-1); j >= 0; j--) {
+      if ($boardArea[i][j] === $text && (i+j) === ($width-1)) {
+        $diagRight +=1;
+      }
+      if ($diagRight === $width) {
+        alert('win');
+        congratulate();
+      }
+    }
+    console.log($text + "diagright is " + $diagRight);
+  }
+}
+
+var congratulate = function() {
+  if ($player === 0) {
+    $('.p1winner').fadeIn(3000);
+  } else if ($player === 1) {
+    $('.p2winner').fadeIn(3000);
+  }
+}
+
+//MAKE BOARD
+$boardBtn.on('click', makeBoard);

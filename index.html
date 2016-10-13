@@ -5,27 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>FRY FIGHT!</title>
 </head>
 <body>
   <header>
-    <h1>title</h1>
-    <h2>subheading</h2>
+    <h1>FRY FIGHT!</h1>
+    <h2>COLLECT FRIES TO WIN</h2>
   </header>
 
   <div class='board'>
-    <p>board size</p>
+    <span></span>
+    <div class='p1winner'>
+    </div>
+    <div class ='p2winner'>
+    </div>
+<!-- create board -->
+<!-- provide options for board size -->
     <form>
       <select id="sizes">
         <option></option>
       </select>
     </form>
+    <button id="createboard">create board</button>
 
-    <button>create board</button>
+
+<!-- avatar selection -->
+    <!-- <div class='avatar-selection'>
+      <p>p1 select avatar!</p>
+        <img class='kanye' src="http://thesportsquotient.com/media/posts/15409/tumblr_m347dizlFX1rue873o1_r2_400.png
+" alt="" width="100px">
+      <p>p2 select avatar!</p>
+        <img class='drake' src="http://www.thecoli.com/data/xengallery/7/7517-55257e2ed448ffc645514e963682eec3.jpg?1442207637
+" alt="" width="100px"> -->
+
+<!-- print board -->
+    <table>
+    </table>
+    <div id='out'></div>
 
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" charset="utf-8"></script>
+
+
+
+  <script src="jquery.js" charset="utf-8"></script>
   <script src="ox.js" charset="utf-8"></script>
 </body>
 </html>

@@ -17,20 +17,20 @@
 
 <!-- create board -->
   <div class='board'>
+    <div class ="left">
 <!-- names -->
-  <p>Player 1 Name: </p><input type="text"></input>
-  <p>Player 2 Name: </p><input type="text"></input>
+      <p>Player 1 Name: </p><input type="text"></input>
+      <p>Player 2 Name: </p><input type="text"></input>
 
-<!-- provide options for board size -->
-  </br>
-    <form>
-      <select id="sizes">
-        <option></option>
-      </select>
-    </form>
-    <button id="createboard">NEW GAME</button>
-<!-- SCORES -->
-
+    <!-- provide options for board size -->
+      </br>
+        <form>
+          <select id="sizes">
+            <option></option>
+          </select>
+        </form>
+        <button id="createboard">NEW GAME</button>
+    </div>
 
 
 <!-- avatar selection -->
@@ -43,15 +43,25 @@
 " alt="" width="100px"> -->
 
 <!-- print board -->
-    <div class='p1winner'>
-      <img src="http://66.media.tumblr.com/tumblr_m9473r4uzP1rue873o1_400.png" alt="" />
-    </div>
-    <div class ='p2winner'>
-      <img src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png">
+
+
+    <div class="center">
+      <div class='p1winner'>
+        <img src="http://66.media.tumblr.com/tumblr_m9473r4uzP1rue873o1_400.png" alt="" />
+      </div>
+      <div class ='p2winner'>
+        <img src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png">
+      </div>
+      <table>
+      </table>
     </div>
 
-    <table>
-    </table>
+    <!-- SCORES -->
+    <div class="right">
+      <p class="p1name"> </p><p>score:</p><p class="p1score"></p>
+      <p class="p2name"> </p><p>score:</p><p class="p2score"></p>
+    </div>
+
 
   </div>
 

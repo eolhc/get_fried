@@ -12,6 +12,8 @@ var $text = '';
 //TRACKING ROUNDS
 
 
+//RECORD USER NAME
+
 //CREATE OPTIONS FOR BOARD SIZE
 $.each(boardSizes,function(index,sizes) {
   $('#sizes').append($('<option>', {

@@ -51,7 +51,7 @@ var printBoard = function() {
     $newRow.appendTo($('table'));
   }
   addIndexes();
-  $('td').on('click',letsPlay);
+  $('td').on('click',playerGrunt);
 }
 
 //UPDATE $CELLS TO HAVE DATA INDEXES
@@ -59,9 +59,18 @@ var printBoard = function() {
 var addIndexes = function() {
   for (var i = 0; i < $width**2; i++) {
         $($('td')[i]).attr('data-index',i);
-    }
-
   }
+};
+
+//ADD SOUNDS
+var playerGrunt = function(event) {
+  if ($player === 0) {
+    $('.kanye-grunt').get(0).play();
+  } else if ($player === 1) {
+    $('.drake-grunt').get(0).play();
+  }
+  letsPlay(event);
+}
 
 //CREATE USERPLAY
 var letsPlay = function(event) {

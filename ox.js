@@ -20,11 +20,15 @@ var $p2Name = '';
 var logUser1 = function() {
   $p1Name = $($('input')[0]).val();
   $('.p1name').html($p1Name + "\'s Score:&nbsp;");
+  $p1Score = 0;
+  $p2Score = 0;
   $('.p1score').html($p1Score);
 }
 var logUser2 = function() {
   $p2Name = $($('input')[1]).val();
   $('.p2name').html($p2Name + "\'s Score:&nbsp;");
+  $p1Score = 0;
+  $p2Score = 0;
   $('.p2score').html($p2Score);
 }
 
@@ -37,6 +41,7 @@ $.each(boardSizes,function(index,sizes) {
 
 // CREATE BOARD
 var makeBoard = function() {
+  clearBoard();
   var $chosenSize = $('#sizes option:selected');
   //SET GRID SIZE FOR BOARD
   if ($chosenSize.val() === "3 x 3") {
@@ -149,6 +154,7 @@ var calculateWin = function() {
         console.log($boardArea);
         congratulate();
         sing();
+        updateScore();
         clearBoard();
       }
     }
@@ -182,7 +188,6 @@ var clearBoard = function() {
   $text = '';
   $boardArea = [];
   $width = 0;
-  $player = 0;
   $('table').empty();
   if ($player === 0) {
     $('.p1winner').fadeOut(3000);
@@ -210,7 +215,13 @@ var sing = function() {
 //TRACK SCORE
 
 var updateScore = function() {
-
+  if ($player === 0) {
+    $p1Score +=1;
+    $('.p1score').html($p1Score);
+  } else if ($player === 1) {
+    $p2Score +=1;
+    $('.p2score').html($p2Score);
+  }
 }
 
 //MAKE BOARD

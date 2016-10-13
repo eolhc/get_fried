@@ -9,10 +9,24 @@ var $player = 0;
 var boardSizes = ["3 x 3","5 x 5","9 x 9"]
 var $text = '';
 
-//TRACKING ROUNDS
-
+//SCORE RECORD
+var $p1Score = 0;
+var $p2Score = 0;
 
 //RECORD USER NAME
+var $p1Name = '';
+var $p2Name = '';
+
+var logUser1 = function() {
+  $p1Name = $($('input')[0]).val();
+  $('.p1name').html($p1Name + "\'s Score:&nbsp;");
+  $('.p1score').html($p1Score);
+}
+var logUser2 = function() {
+  $p2Name = $($('input')[1]).val();
+  $('.p2name').html($p2Name + "\'s Score:&nbsp;");
+  $('.p2score').html($p2Score);
+}
 
 //CREATE OPTIONS FOR BOARD SIZE
 $.each(boardSizes,function(index,sizes) {
@@ -133,7 +147,6 @@ var calculateWin = function() {
       }
       if ($numRow === $width || $numCol === $width || $diagLeft === $width) {
         console.log($boardArea);
-        alert('win');
         congratulate();
         sing();
         clearBoard();
@@ -155,9 +168,9 @@ var calculateWin = function() {
         $diagRight +=1;
       }
       if ($diagRight === $width) {
-        alert('win');
         congratulate();
         sing();
+        updateScore();
         clearBoard();
       }
     }
@@ -194,6 +207,13 @@ var sing = function() {
   }
 }
 
+//TRACK SCORE
+
+var updateScore = function() {
+
+}
 
 //MAKE BOARD
 $boardBtn.on('click', makeBoard);
+$('.log-p1').on('click', logUser1);
+$('.log-p2').on('click', logUser2);

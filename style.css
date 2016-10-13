@@ -10,6 +10,14 @@ header {
   width: 96%;
 }
 
+input {
+  width: 50%;
+}
+
+.log-p1, .log-p2 {
+  width: 40%;
+}
+
 .left, .right, .center {
   display: inline-block;
 }
@@ -20,7 +28,6 @@ header {
 
 .right {
   width: 16%;
-  visibility:hidden;
 }
 
 .center {
@@ -31,7 +38,7 @@ audio {
   visibility: hidden;
 }
 
-form, button, p, input {
+form, button, p, input, button {
   display: inline-block;
   font-family: 'bungee';
 }
@@ -42,6 +49,15 @@ h1 {
 
 h2 {
   font-size: 20px;
+}
+
+p {
+  font-size: 12px;
+  margin: 0;
+}
+
+button, input {
+  font-size: 11px;
 }
 
 table {

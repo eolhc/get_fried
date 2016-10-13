@@ -35,7 +35,7 @@ table {
 
 .p1winner, .p2winner {
   position: absolute;
-  padding-top: 10%;
+  padding-top: 20%;
   width: 100%;
   height: 100%;
   display:none;

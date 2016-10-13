@@ -94,13 +94,13 @@ table {
 .fry {
   width: 100px;
   height: 100px;
-  background-image: url("https://em-uploads.s3.amazonaws.com/profilebg/560814.png");
+  background-image: url("images/fry.png");
   background-repeat:no-repeat;
   background-size:100px;
 }
 
 .p1 {
-  background-image: url("http://thesportsquotient.com/media/posts/15409/tumblr_m347dizlFX1rue873o1_r2_400.png");
+  background-image: url("images/kanyesad.png");
   background-size: 60px;
   margin: 0 auto;
   text-align: center;
@@ -108,7 +108,7 @@ table {
 
 
 .p2 {
-  background-image: url("http://www.thecoli.com/data/xengallery/7/7517-55257e2ed448ffc645514e963682eec3.jpg?1442207637");
+  background-image: url("images/drakesad.jpeg");
   background-size: 80px;
   margin: 0 auto;
   text-align: center;

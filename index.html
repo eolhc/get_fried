@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <title>FRY FIGHT!</title>
+  <title>GET FRIED!</title>
 </head>
 <body>
   <header>
-    <h1>FRY FIGHT!</h1>
+    <h1>GET FRIED!</h1>
     <h2>COLLECT FRIES TO WIN</h2>
   </header>
 
   <div class='board'>
     <span></span>
-    <div class='p1winner'>
-    </div>
-    <div class ='p2winner'>
-    </div>
 <!-- create board -->
 <!-- provide options for board size -->
     <form>
@@ -26,7 +22,7 @@
         <option></option>
       </select>
     </form>
-    <button id="createboard">create board</button>
+    <button id="createboard">NEW GAME</button>
 
 
 <!-- avatar selection -->
@@ -40,8 +36,16 @@
 
 <!-- print board -->
     <table>
+      <div class='p1winner'>
+        <img src="http://66.media.tumblr.com/tumblr_m9473r4uzP1rue873o1_400.png" alt="" />
+        <audio class="audio" controls="" data-id="366">
+          <source src="https://d2eopxgp627wep.cloudfront.net/ps/audios/000/000/366/original/i'm-the-man.mp3?1469744019" type="audio/mp3">
+        </audio>
+      </div>
+      <div class ='p2winner'>
+        <img src="http://40.media.tumblr.com/7661bc36ea8dbdb8384d29288c90adf1/tumblr_nh9cz35tS51u6hgkxo1_500.png">
+      </div>
     </table>
-    <div id='out'></div>
 
   </div>
 

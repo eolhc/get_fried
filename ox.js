@@ -118,6 +118,8 @@ var calculateWin = function() {
         console.log($boardArea);
         alert('win');
         congratulate();
+        sing();
+        clearBoard();
       }
     }
     // console.log($text + "diag left is " + $diagLeft);
@@ -138,19 +140,40 @@ var calculateWin = function() {
       if ($diagRight === $width) {
         alert('win');
         congratulate();
+        sing();
+        clearBoard();
       }
     }
     console.log($text + "diagright is " + $diagRight);
   }
 }
 
+var clearBoard = function() {
+  $text = '';
+  $boardArea = [];
+  $width = 0;
+  $player = 0;
+  $('table').empty();
+}
+
 var congratulate = function() {
   if ($player === 0) {
     $('.p1winner').fadeIn(3000);
-  } else if ($player === 1) {
+    } else if ($player === 1) {
     $('.p2winner').fadeIn(3000);
   }
 }
+
+var sing = function() {
+  if ($player === 0) {
+    $('.audio1').load();
+    $('.audio1').play();
+  } else if ($player === 1) {
+    $('.audio2').load();
+    $('.audio2').play();
+  }
+}
+
 
 //MAKE BOARD
 $boardBtn.on('click', makeBoard);

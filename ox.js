@@ -18,14 +18,14 @@ var $p1Name = '';
 var $p2Name = '';
 
 var logUser1 = function() {
-  $p1Name = $($('input')[0]).val();
+  $p1Name = $('input').eq(0).val();
   $('.p1name').html($p1Name + "\'s Score:&nbsp;");
   $p1Score = 0;
   $p2Score = 0;
   $('.p1score').html($p1Score);
 }
 var logUser2 = function() {
-  $p2Name = $($('input')[1]).val();
+  $p2Name = $('input').eq(1).val();
   $('.p2name').html($p2Name + "\'s Score:&nbsp;");
   $p1Score = 0;
   $p2Score = 0;
@@ -41,7 +41,10 @@ $.each(boardSizes,function(index,sizes) {
 
 // CREATE BOARD
 var makeBoard = function() {
+  $('body').css({'background-image': 'none'})
+  $('.left, .right, header, .board').css({'visibility':'visible'})
   clearBoard();
+  $('.newGame').css({'display':'none'})
   var $chosenSize = $('#sizes option:selected');
   //SET GRID SIZE FOR BOARD
   if ($chosenSize.val() === "3 x 3") {
@@ -202,6 +205,7 @@ var congratulate = function() {
     } else if ($player === 1) {
     $('.p2winner').fadeIn(3000);
   }
+  setTimeout(playAgain,4000);
 }
 
 var sing = function() {
@@ -224,7 +228,23 @@ var updateScore = function() {
   }
 }
 
+//PLAY AGAIN?
+var playAgain = function() {
+  $('.newGame').fadeIn(3000);
+}
+
+
+//SAD
+var sad = function() {
+  $('.indignantkhaled').get(0).play();
+  $('.left, .right, header, board').css({'visibility':'hidden'})
+  $('body').css({'background-image': "url('images/grumpycat.jpeg')"})
+  playAgain();
+}
+
 //MAKE BOARD
 $boardBtn.on('click', makeBoard);
 $('.log-p1').on('click', logUser1);
 $('.log-p2').on('click', logUser2);
+$('.y').on('click', makeBoard);
+$('.n').on('click', sad);

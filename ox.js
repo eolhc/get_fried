@@ -232,7 +232,7 @@ var updateScore = function() {
 
 //PLAY AGAIN?
 var playAgain = function() {
-  $('.newGame').fadeIn(3000);
+  $('.newGame').fadeIn(1000);
 }
 
 

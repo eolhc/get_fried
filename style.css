@@ -1,7 +1,7 @@
 body {
   margin: 0 auto;
   text-align: center;
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee Shade', cursive, sans-serif;
   background-color: #f9e0db;
   width: 80%;
   background-image: none;
@@ -171,18 +171,15 @@ td {
     width: 10%;
     margin: 0 auto;
     display: inline-block;
-    float: left;
   }
   .center {
     width: 60%;
     margin: 0 auto;
     display: inline-block;
-    float: left;
   }
   .right {
     width: 10%;
     display: inline-block;
-    float: left;
   }
 
 }

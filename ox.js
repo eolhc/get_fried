@@ -1,3 +1,6 @@
+//fix audio
+$('.hotlinebling')[0].volume = 0.5;
+
 //board variables
 var $boardBtn = $('#createboard');
 var $sizes = $('#sizes');

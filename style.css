@@ -9,14 +9,6 @@ body {
   background-size: 100%;
 }
 
-.left, .right, .center, header, .board {
-  visibility: visible;
-}
-
-header {
-  width: 96%;
-}
-
 input {
   width: 50%;
 }
@@ -25,33 +17,41 @@ input {
   width: 40%;
 }
 
-.left, .right, .center {
-  display: inline-block;
-}
-
 .board {
   height: 64%;
+  visibility: visible;
 }
 
 .left {
   width: 16%;
-  margin: 0 auto;
+  vertical-align: middle;
+  display: inline-block;
+  visibility: visible;
+
 }
 
 .right {
   width: 16%;
+  vertical-align: middle;
+  display: inline-block;
+  visibility: visible;
+
 }
 
 .center {
   width: 64%;
   position: relative;
   overflow: hidden;
+  vertical-align: middle;
+  display: inline-block;
+  visibility: visible;
+
+
 }
 
 .td {
-  width: auto;
   position: relative;
-  padding-bottom: 2*;
+  padding-bottom: 2px;
 }
 
 
@@ -66,44 +66,39 @@ form, button, p, input, button {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 .y, .n {
-  font-size: 32px;
+  font-size: 2em;
   color: #3995a3;
   display: inline-block;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 2em;
   color: #3995a3;
   display: block;
 }
 
-h3 .sigh {
-  display: block;
-}
-
-
-
 p {
-  font-size: 12px;
+  font-size: 0.8em;
   margin: 0;
 }
 
 button, input {
-  font-size: 11px;
+  font-size: 0.6em;
 }
 
 table {
   margin: 0 auto;
   text-align: center;
   table-layout: fixed;
+  padding-top: 10%;
 }
 
 .p1winner, .p2winner {
@@ -116,7 +111,7 @@ table {
 }
 
 td {
-  width: auto;
+  width: 200px;
   height:auto;
   border:1px solid transparent;
   border-collapse: collapse;
@@ -127,11 +122,11 @@ td {
 
 
 .fry {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-image: url("images/fry.png");
   background-repeat:no-repeat;
-  background-size:100px;
+  background-size:100%;
 }
 
 .p1 {
@@ -149,4 +144,45 @@ td {
 
 .newGame {
   display: none;
+}
+
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  header {
+    width: 80%;
+  }
+  body {
+    width: 100%;
+  }
+  p, .y, .n, h3, button {
+    font-size: 0.5em;
+  }
+  input {
+    font-size: 0.4em;
+  }
+  .left {
+    width: 10%;
+    margin: 0 auto;
+    display: inline-block;
+    float: left;
+  }
+  .center {
+    width: 60%;
+    margin: 0 auto;
+    display: inline-block;
+    float: left;
+  }
+  .right {
+    width: 10%;
+    display: inline-block;
+    float: left;
+  }
+
 }

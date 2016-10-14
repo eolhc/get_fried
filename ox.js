@@ -54,6 +54,7 @@ var makeBoard = function() {
   } else if ($chosenSize.val() === "9 x 9") {
     $width = 9;
   }
+
   //CREATE $boardArea BASED ON THE CHOSEN GRID SIZE
   for (var i = 0; i < $width; i++) {
     var $row = [];
@@ -87,6 +88,7 @@ var addIndexes = function() {
   for (var i = 0; i < $width**2; i++) {
         $($('td')[i]).attr('data-index',i);
   }
+  fixCellSize();
 };
 
 //ADD SOUNDS
@@ -242,9 +244,28 @@ var sad = function() {
   playAgain();
 }
 
+//ANOTHER ONE
+var anotherOne = function() {
+  $('.anotherone').get(0).play();
+  makeBoard();
+}
+
+//AMEND BOARD SIZE:
+
+var fixCellSize = function() {
+  console.log($width);
+  if ($width === 3) {
+    $('.fry').css({'width':'100px', 'height':'100px'})
+  } else if ($width === 5) {
+    $('.fry').css({'width':'80px', 'height':'80px'})
+  } else if ($width === 9) {
+    $('.fry').css({'width':'50px', 'height':'50px'})
+  }
+}
+
 //MAKE BOARD
 $boardBtn.on('click', makeBoard);
 $('.log-p1').on('click', logUser1);
 $('.log-p2').on('click', logUser2);
-$('.y').on('click', makeBoard);
+$('.y').on('click', anotherOne);
 $('.n').on('click', sad);
